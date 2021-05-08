@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RoboticsControl.View.DeviceConnectView">
+    
+    <ContentPage.Content>
+        <Grid BackgroundColor="{StaticResource Primary}">
+
+            <Image Source="@drawable/horse" Opacity="0.5"  Aspect="AspectFill"/>
+         
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="8*"/>
+                </Grid.RowDefinitions>
+                
+                <Grid Grid.Row="0"  BackgroundColor="{StaticResource LightPurple}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="8*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <ImageButton BackgroundColor="Transparent" Grid.Column="0" Source="@drawable/BackButton" Aspect="AspectFit" Margin="10" 
+                                 Clicked="ImageButton_Clicked" />
+                    <Label  Grid.Column="1" Text="Bluetooth Connection" TextColor="{StaticResource EggYellow}" FontSize="22" VerticalOptions="CenterAndExpand" 
+                           HorizontalOptions="CenterAndExpand"/>
+                </Grid>
+                <ListView x:Name="devicesList" Grid.Row="1" ItemTapped="ListView_ItemTapped">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Label TextColor="{StaticResource EggYellow}" Text="{Binding Name, Source=Device}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+  
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
