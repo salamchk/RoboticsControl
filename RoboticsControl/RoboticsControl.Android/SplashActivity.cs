@@ -24,7 +24,8 @@ namespace RoboticsControl.Droid
         ConfigurationChanges = 
     ConfigChanges.ScreenSize | ConfigChanges.Orientation | 
     ConfigChanges.UiMode | ConfigChanges.ScreenLayout | 
-    ConfigChanges.SmallestScreenSize)]
+    ConfigChanges.SmallestScreenSize,
+        ScreenOrientation = ScreenOrientation.Landscape)]
     public class SplashActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)

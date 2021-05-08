@@ -25,6 +25,12 @@ namespace RoboticsControl.ViewModel
                 return _connection;
         }
 
+        public static DeviceConnection GetConnection()
+        {
+            return _connection;
+        }
+
+
         public void Connect()
         {
             try

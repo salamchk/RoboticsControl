@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RoboticsControl.App">
     <Application.Resources>
-        <Color x:Key="Primary">#542E71</Color>
+        <Color x:Key="Primary">#262626</Color>
         <Color x:Key="LightRed">#fb3640</Color>
         <Color x:Key="EggYellow">#fdca40</Color>
         <Color x:Key="LightPurple">#a799b7</Color>
@@ -17,6 +17,15 @@
         <Style x:Key="CancelButonStyle" TargetType="Button">
             <Setter Property="BackgroundColor" Value="{StaticResource Primary}"/>
             <Setter Property="TextColor" Value="{StaticResource EggYellow}"/>
+        </Style> 
+        <Style x:Key="MoveButtonStyle" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{StaticResource EggYellow}"/>
+            <Setter Property="ImageSource" Value="@drawable/arrow"/>
+            <Setter Property="CornerRadius" Value="100"/>
+            <Setter Property="HeightRequest" Value="100"/>
+            <Setter Property="WidthRequest" Value="100"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="VerticalOptions" Value="EndAndExpand"/>
         </Style>
     </Application.Resources>
 </Application>

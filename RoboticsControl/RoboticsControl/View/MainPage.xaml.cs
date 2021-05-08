@@ -18,7 +18,8 @@ namespace RoboticsControl
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(DeviceConfigurationView.GetDeviceConfigurationView());
+            // await Navigation.PushModalAsync(DeviceConfigurationView.GetDeviceConfigurationView());
+            await Navigation.PushModalAsync(new ControlView());
         }
 
         private async void btnConnect_Clicked(object sender, EventArgs e)
