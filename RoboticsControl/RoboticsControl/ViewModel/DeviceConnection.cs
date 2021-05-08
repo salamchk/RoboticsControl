@@ -45,6 +45,12 @@ namespace RoboticsControl.ViewModel
             }
         }
 
+        public void Disconect()
+        {
+           if(_socket != null) _socket.Close();
+            _socket = null;
+        }
+
         private DeviceConnection(Model.Device device)
         {
             SelectedDevice = device;

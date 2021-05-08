@@ -16,12 +16,14 @@ namespace RoboticsControl.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DeviceConnectView : ContentPage
     {
+        private static DeviceConnection connection;
         public DeviceConnectView()
         {
             InitializeComponent();
             var searcher = DeviceSearcher.GetSearcher();
             searcher.Search();
             devicesList.ItemsSource =new  ObservableCollection<Model.Device>(searcher.Devices);
+            if (connection != null) devicesList.IsEnabled = false;
             
         }
         private async void ImageButton_Clicked(object sender, EventArgs e)
@@ -31,8 +33,36 @@ namespace RoboticsControl.View
 
         private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            var connection = DeviceConnection.GetConnection((Model.Device)e.Item);
+            try
+            {
+                devicesList.IsEnabled = false;
+                connection = DeviceConnection.GetConnection((Model.Device)e.Item);
+                connection.Connect();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
             devicesList.SelectedItem = null;
+            
+        }
+
+        private void DisconnectButton_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                connection.Disconect();
+                devicesList.IsEnabled = true;
+                connection = null;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
     }
 }

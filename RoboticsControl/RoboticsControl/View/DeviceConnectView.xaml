@@ -7,14 +7,15 @@
         <Grid BackgroundColor="{StaticResource Primary}">
 
             <Image Source="@drawable/horse" Opacity="0.5"  Aspect="AspectFill"/>
-         
+
             <Grid>
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*"/>
-                    <RowDefinition Height="8*"/>
+                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
-                
+
                 <Grid Grid.Row="0"  BackgroundColor="{StaticResource LightPurple}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="2*"/>
@@ -29,12 +30,16 @@
                 <ListView x:Name="devicesList" Grid.Row="1" ItemTapped="ListView_ItemTapped">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <Label TextColor="{StaticResource EggYellow}" Text="{Binding Name, Source=Device}"/>
+                            <TextCell Text="{Binding Name}" TextColor="{StaticResource EggYellow}"/>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+                <Grid Grid.Row="2" Margin="5">
+                    <Button Text="Disconnect" x:Name="DisconnectButton" Margin="10" FontSize="20" FontAttributes="Bold"  Style="{StaticResource ButtonStyle}"
+                            CornerRadius="10" Clicked="DisconnectButton_Clicked"/>
+                </Grid>
             </Grid>
-  
         </Grid>
+
     </ContentPage.Content>
 </ContentPage>
